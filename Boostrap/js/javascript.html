@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        body {
+            background-color: lightcyan;
+            font-size: xx-large;
+            text-align: center;
+            margin: 5%;
+            padding: 10%;
+            border: 3px rebeccapurple solid;
+            border-radius: 10px;
+        }
+    </style>
+    <script>
+        window.alert("suma de numeros");
+        var nombre = "Jonathan", apellido = "López", ciudad = "Bogotá", pais = "Colombia";
+        var nacimiento = prompt("ingrese su año de nacimiento"), año = 2020, edad;
+        var num1, num2, sum, res, mul, div, mod, parImpar = prompt ("ingrese un numero");
+        num1 = 7;
+        num2 = 2;
+        sum = num1 + num2;
+        console.log("el numero es " + sum);
+        res = num1 - num2;
+        console.log("el numero es " + res);
+        mul = num1 * num2;
+        console.log("el numero es " + mul);
+        div = num1 / num2;
+        console.log("el numero es " + div);
+        edad = año - parseInt(nacimiento);
+
+        mod=parImpar % num2;
+        if (mod==0){
+            console.log("el numero es par")
+        }
+        else {
+            console.log("el numero es impar")
+        }
+
+
+        document.write("habia una vez alguien llamado " + nombre + " " + apellido + " que venia del lejano reino de " + ciudad + " " + pais + " y tenia " + edad + " años");
+        console.log("Mi nombre es " + nombre + " " + apellido);
+
+
+
+
+    </script>
+</body>
+
+</html>

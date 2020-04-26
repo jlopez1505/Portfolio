@@ -4,37 +4,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" author="Jonathan López">
     <title>Jonathan</title>
-    <link rel="stylesheet" href="Css/Index.css">
-    <link rel="stylesheet" href="../../Boostrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Boostrap/css/bootstrap.min.css">
 </head>
-<body style="background-color: cyan">
-    <div style="display: flex; align-items: baseline;">
-        <h1 style="justify-content: center;">Inicie sesión</h1>
-    <div class="formulario">
+<style>
+    body{
+        background-color: rgb(195, 0, 255);
+    }
+    .formulario{
+        background-color: white;
+        border-radius: 10px;
+        padding: 4%;   
+    }
+    .formHead{
+        margin: 4%;
+        text-align: center;
+        color: white;
+    }
+    .formD{
+        width: 400px;
+        margin: auto;
+    }
+    .formD input{
+        display: block;
+        width: 100%;
+        margin-bottom: 40px;
+        border: none;
+        border-bottom: solid 1px rgb(87, 87, 87) ;
+    }
+    .formulario label{
+        font-size: 14pt;
+        font-weight: 600;
+        color: rgb(102, 102, 102);
+    }
+    #ojo{
+        background: none;
+        border: none;
+        margin: 0 20px;
+    }
+    #ojo img{
+        width: 20px;
+    }
+    .enviar{
+        width: 100%;
+        padding: 3%;
+        background-color: indigo;
+        border: rgb(149, 0, 255) 5px solid;
+        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+        margin-top: 2%;
+    }
+    .formR{
+        width: 60%;
+        margin: auto;
+    }
+    .formR legend{
+        margin-bottom: 30px;
+        font-size: xx-large;
+    }
+    .formR input, .formR select{
+        width: 100%;
+        border: rgb(149, 0, 255) 2px solid;
+        border-radius: 5px;
+        padding: 1%;
+        margin-bottom: 20px;
+    }
+    @media(max-width:700px){
+        .formulario{
+            width: 90%;
+        }
+    }
+    .oculto{
+        display: none;
+    }
+
+</style>
+<body>
+    <div>
+    <h1 class="formHead">Inicie sesión</h1>
+    <div class="formulario formD">
         <form action="Index.html" method="POST" name="log" onsubmit="return log_in()">
-            <fieldset> 
-                <legend>Log-in</legend>
                 <label for="emailLog">Correo</label>
                 <input type="email"  name="emailLog" id="emailLog">
                 <label for="contraseña">Contraseña</label>
-                <button type="button" style="margin: 5px; border-radius: 10px;" onclick="mostrarContrasena()">Mostrar</button>
+                <button id="ojo" type="button" onclick="mostrarContrasena()"><img src="Imagenes/ojo.png" alt=""></button>
                 <input type="password" required name="contraseñaLog" id="contraseñaLog" >
-                <label for="" id="errorInicio" class="oculto" hidden>El usuario o la contraseña no coinciden</label>
-                <button class="enlace">Enviar</button>
-            </fieldset> 
+                <label for="" id="errorInicio" class="oculto">El usuario o la contraseña no coinciden</label>
+                <button class="enviar">Enviar</button>
         </form>
     </div>
     
-    <h1 style="justify-content: center; padding: 5%;">Regístrese</h1>
+    <h1 class="formHead">Regístrese</h1>
 
-    <div class="formulario">
+    <div class="formulario formR">
 <form method="POST" name="registro" onsubmit="return registro2()">
     <fieldset>
-        <legend>Registrate</legend>
+        <legend>Tus datos</legend>
         <label for="nombres">Nombre</label>
         <input type="text" name="nombres" id="nombres" required maxlength="20">
         <label for="apellidos">Apellido</label>
         <input type="text" name="apellidos" id="apellidos" required maxlength="20">
+
         <label for="tipDoc">Tipo de documento</label>
         <select name="tipDoc" id="tipDoc" required>
             <option value="CC">Cedula de Ciudadania</option>
@@ -42,35 +112,44 @@
             <option value="PS">Pasaporte</option>
             <option value="otro">Otro</option>
         </select>
+
         <label for="documento">Numero de documento</label>
-        <input type="number" name="documento" id="documento" required max="99999999999" >
-        <label for="">Genero</label>
+        <input type="" name="documento" id="documento" required max="99999999999" >
+
+        <label style="margin-top: 20px; display: block;" for="">Genero</label>
         <label for="masculino">Masculino</label>
-        <input type="radio" name="genero" id="masculino" required value="Masculino" checked>
+        <input style="width: 20%;" type="radio" name="genero" id="masculino" required value="Masculino" checked>
         <label for="femenino">Femenino</label>
-        <input type="radio"name="genero" id="femenino" required value="Femenino">
-        <label for="nacimiento">Fecha de nacimiento</label>
+        <input style="width: 20%;"  type="radio"name="genero" id="femenino" required value="Femenino">
+        
+        <label style="margin-top: 20px;" for="nacimiento">Fecha de nacimiento</label>
         <input type="date" name="nacimiento" id="nacimiento" required onchange="validarEdad()">
-        <label for="" id="errorEdad" class="oculto" hidden>Usted es menor de edad</label>
+        <label for="" id="errorEdad" class="oculto">Usted es menor de edad</label>
+        
         <label for="telefono">Telefono</label>
-        <input type="number" name="telefono" id="telefono" max=9999999>
+        <input type="tel" name="telefono" id="telefono" max=9999999>
+       
         <label for="celular">Celular</label>
-        <input type="number" name="celular" id="celular" required max=9999999999>
+        <input type="tel" name="celular" id="celular" required max=9999999999>
         
     </fieldset>
     <fieldset> 
         <legend>Usuario</legend>
         <label for="email">Correo</label>
         <input type="email" required name="email" id="email" onchange="validarCorreo()">
-        <label for="" id="errorCorreo" class="oculto" hidden>El correo ya existe</label>
+        <label for="" id="errorCorreo" class="oculto">El correo ya existe</label>
+        
         <label for="">Contraseña</label>
         <input type="password" required name="contrasena" id="contraseña" minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+        
         <label for="">Repetir contraseña</label>
-        <input type="password" required name="contraseñaRep" id="contraseñaRep" minlength="8" >
-        <label for="" id="errorContra" class="oculto" hidden>Las contraseñas no coinciden</label>
-        <label for="">Acepto terminos y condiciones</label>
-        <input type="checkbox" required>
-        <button class="enlace">Enviar</button>
+        <input type="password" required name="contraseñaRep" id="contraseñaRep" minlength="8" onchange="validarContraseña()">
+        <label for="" id="errorContra" class="oculto">Las contraseñas no coinciden</label>
+        
+        <label style="margin-top: 20px;" for="">Acepto terminos y condiciones</label>
+        <input style="width: 20%;"  type="checkbox" required>
+        
+        <button class="enviar">Enviar</button>
     </fieldset> 
 </form>   
 </div>
